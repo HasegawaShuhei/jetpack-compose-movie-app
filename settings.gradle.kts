@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Movie App"
 include(":app")
 include(":feature:movie:data")
+include(":feature:movie:domain")
