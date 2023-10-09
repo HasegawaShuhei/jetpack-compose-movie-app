@@ -53,6 +53,10 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:movie:ui"))
+    implementation(project(":core:common"))
+    implementation(project(":core:feature_api"))
+
     implementation(Deps.core)
     implementation(CoroutinesLifecycleScope.lifeCycleRuntime)
     implementation(JetpackCompose.composeActivity)
