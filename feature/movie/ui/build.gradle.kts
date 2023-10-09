@@ -14,6 +14,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -32,6 +35,17 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
@@ -45,6 +59,7 @@ dependencies {
     implementation(JetpackCompose.composeActivity)
     implementation(JetpackCompose.composeUi)
     implementation(JetpackCompose.composeUiToolingPreview)
+    implementation(JetpackCompose.composeMaterial3)
     implementation(JetpackCompose.composeMaterial)
 
     testImplementation(TestImplementation.junit)
@@ -60,4 +75,6 @@ dependencies {
     implementation(DaggerHilt.hilt)
     kapt(DaggerHilt.hiltCompiler)
     implementation(DaggerHilt.hiltComposeNavigation)
+
+    implementation(CoilImageLoadingLib.coil)
 }
