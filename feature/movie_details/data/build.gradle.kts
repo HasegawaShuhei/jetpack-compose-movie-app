@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -33,6 +35,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:movie_details:domain"))
+    implementation(project(":core:network"))
 
     implementation(Deps.core)
     implementation(Deps.appCompat)
@@ -40,4 +44,7 @@ dependencies {
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
+
+    implementation(DaggerHilt.hilt)
+    kapt(DaggerHilt.hiltCompiler)
 }
